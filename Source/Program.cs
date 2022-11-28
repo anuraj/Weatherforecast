@@ -9,7 +9,7 @@ builder.Services.AddRateLimiter(_ => _
         options.PermitLimit = 4;
         options.Window = TimeSpan.FromSeconds(12);
         options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        options.QueueLimit = 2;
+        options.QueueLimit = 0;
     }));
 
 // Add services to the container.
@@ -56,3 +56,5 @@ record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+
+public partial class Program { }
