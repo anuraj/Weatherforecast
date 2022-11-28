@@ -48,7 +48,8 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast").RequireRateLimiting("fixed")
 .WithOpenApi();
 
-app.UseRouting();
+//Commented the code below to make the test fail
+//app.UseRouting();
 
 app.Run();
 
