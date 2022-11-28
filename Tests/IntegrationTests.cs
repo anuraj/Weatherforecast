@@ -17,7 +17,7 @@ public class IntegrationTests: IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public async Task FetchWeatherforecastWithRateLimit()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 100; i++)
         {
             var response = await _httpClient.GetAsync("/weatherforecast");
             response.EnsureSuccessStatusCode();

@@ -12,8 +12,6 @@ builder.Services.AddRateLimiter(_ => _
         options.QueueLimit = 0;
     }));
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -48,8 +46,7 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast").RequireRateLimiting("fixed")
 .WithOpenApi();
 
-//Commented the code below to make the test fail
-//app.UseRouting();
+app.UseRouting();
 
 app.Run();
 
