@@ -16,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-app.UseRateLimiter();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -47,7 +47,7 @@ app.MapGet("/weatherforecast", () =>
 .WithOpenApi();
 
 app.UseRouting();
-
+app.UseRateLimiter();
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
